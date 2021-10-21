@@ -1,6 +1,0 @@
-projectKey=com.tcs.WebApp:Webapp
-serverUrl=http://localhost:9000
-serverVersion=7.0.0.36138
-dashboardUrl=http://localhost:9000/dashboard/index/com.tcs.WebApp:Webapp
-ceTaskId=AXyCznNe97rQyTHrX2WF
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXyCznNe97rQyTHrX2WF

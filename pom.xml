@@ -11,8 +11,8 @@
 
   <name>Webapp Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
+  <!--<url>http://localhost:1212/ashok/repository/maven-snapshots/</url>-->
+<url>http://localhost:1212/ashok/repository/Webapp/</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -26,7 +26,7 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
+   <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>servlet-api</artifactId>
     <version>2.5</version>
@@ -44,7 +44,29 @@
         <version>1.8</version>
     </dependency>
   </dependencies>
-
+  <profiles>
+	<profile>
+	  <id>sonar</id>
+	<activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+ <properties>
+    <sonar.host.url>http://localhost:9000/</sonar.host.url>
+	<!--<sonar-maven-plugin.version>3.3.0.603</sonar-maven-plugin.version>-->
+  </properties>
+	  </profile>
+	  </profiles>
+ <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <!--<url>http://your-host:8081/repository/maven-snapshots/</url>-->
+	   <url>http://localhost:1212/ashok/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+   	   <url>http://localhost:1212/ashok/repository/Webapp/</url>
+    </repository>
+  </distributionManagement>
   <build>
     <finalName>Webapp</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -74,19 +96,9 @@
           <artifactId>maven-install-plugin</artifactId>
           <version>2.5.2</version>
         </plugin>
-        <plugin>
+		 <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-site-plugin</artifactId>
-            <version>3.7</version>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-project-info-reports-plugin</artifactId>
-            <version>3.0.0</version>
         </plugin>
        <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -103,4 +115,5 @@
       </plugins>
     </pluginManagement>
   </build>
+ 
 </project>
